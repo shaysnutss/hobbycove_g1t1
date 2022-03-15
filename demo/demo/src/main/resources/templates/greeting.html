@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="content">
+            <h1>WELCOME TO HOBBYCOVE</h1>
+            <h3>For the Hobby Enthusiasts</h3>
+            <div>
+                <a th:href="@{/signupForm}"><button type="button"><span></span>SIGN UP</button></a>
+                <a th:href="@{/loginForm}"><button type="button"><span></span>LOGIN</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

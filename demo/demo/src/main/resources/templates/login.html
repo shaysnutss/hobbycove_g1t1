@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-form">
+        <h1>Login</h1>
+        <form action="#" th:action= "@{/login}" th:object = ${user} method="post">
+            <p>Email</p>
+            <input type="text" th:field= "*{email}" name="email" placeholder="Email">
+            <p>Password</p>
+            <input type="text" th:field= "*{password}" name="password" placeholder="Password">
+            <button type="submit"><span></span>Login</button>
+        </form>
+    </div>
+</body>
+</html>
