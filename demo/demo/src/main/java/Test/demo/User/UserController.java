@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class UserController {
 
+    public static User identity = null;
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -50,11 +52,19 @@ public class UserController {
             
             // checks if the password keyed in matches existing password
             if (password.equals(password2)) {
-                return "redirect:/"; //redirect to home or profile later on
+                return "redirect:/homepage"; //redirect to home or profile later on
             }
          }
          return "login";
         
 
+    }
+
+    @GetMapping(path = "/homepage")
+    public String homePage(Model model) {
+
+        model.addAttribute("name", identity.getName());
+
+        return "homepage";
     }
 }

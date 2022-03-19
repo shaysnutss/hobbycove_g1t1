@@ -30,7 +30,8 @@ drop table if exists `Community`;
 create table `Community`
 (
     `community_id` int auto_increment primary key,
-    `name` varchar(255)
+    `name` varchar(255),
+    `description` varchar(255)
 );
 
 drop table if exists `User_Communities`;

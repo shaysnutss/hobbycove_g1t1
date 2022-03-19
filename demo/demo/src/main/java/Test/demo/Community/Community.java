@@ -27,6 +27,9 @@ public class Community {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
     @ManyToMany(mappedBy = "communities")
     private Set<User> users = new HashSet<>();
 
