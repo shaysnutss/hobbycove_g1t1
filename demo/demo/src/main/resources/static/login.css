@@ -4,8 +4,9 @@
     font-family: sans-serif;
 }
 body{
-    background: url(images/background.jpg) no-repeat;
-    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    background: #266455;
 }
 .login-form{
     width: 350px;
@@ -24,6 +25,7 @@ body{
 .login-form p{
     font-size: 20px;
     margin: 15px 0;
+    font-weight: bold;
 }
 .login-form input{
     font-size: 16px;
@@ -37,18 +39,19 @@ button{
     width: 200px;
     padding: 15px 0;
     text-align: center;
-    margin: 20px 10px;
+    margin: 50px 10px;
     border-radius: 25px;
     font-weight: bold;
-    border: 2px solid #036336;
+    border: 2px solid #fff;
     background: transparent;
     color: #fff;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    margin-left: 75px;
 }
 span{
-    background: #036336;
+    background: #fff;
     height: 100%;
     width: 0%;
     border-radius: 25px;
@@ -63,4 +66,5 @@ button:hover span{
 }
 button:hover{
     border: none;
+    color: #266455;
 }

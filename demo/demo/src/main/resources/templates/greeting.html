@@ -1,13 +1,37 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"></html>
 <head> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Landing Page: HobbyCove</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="banner">
+    <div class="navbar">
+        <img src="images/HOBBYCOVE.png" class="logo">
+        <nav>
+            <ul>
+                <!-- <li><a href="#">Explore</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">Profile</a></li> -->
+                <li><a th:href="@{/signupForm}">SIGN UP</a></li>
+                <li><a th:href="@{/loginForm}">LOGIN</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <div class="textBox">
+            <h2>Discover a world of new <span>Hobbies</span></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Nisi non nobis, natus a dolorem 
+                dolorum nostrum. <br>Amet vero, error ut, non cumque recusandae perferendis ab nulla doloribus, 
+                cum reiciendis exercitationem?</p>
+        </div>
+        <div class="imgBox">
+            <img src="images/icon.jpg" class="hobbies">
+        </div>
+    </div>
+    <!-- <div class="banner">
         <div class="content">
             <h1>WELCOME TO HOBBYCOVE</h1>
             <h3>For the Hobby Enthusiasts</h3>
@@ -16,6 +40,6 @@
                 <a th:href="@{/loginForm}"><button type="button"><span></span>LOGIN</button></a>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>
