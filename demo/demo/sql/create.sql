@@ -37,11 +37,9 @@ create table `Community`
 drop table if exists `User_Communities`;
 create table `User_Communities`
 (
+    `user_communities_id` int auto_increment primary key,
     `user_id` int,
-    `community_id` int,
-    primary key(`user_id`, `community_id`),
-    foreign key(`user_id`) references `User`(`user_id`),
-    foreign key(`community_id`) references `Community`(`community_id`)
+    `community_id` int
 );
 
 drop table if exists `Post`;
@@ -52,5 +50,6 @@ create table `Post`
     `community_id` int,
     foreign key(`community_id`) references `Community`(`community_id`)
 );
+
 
 

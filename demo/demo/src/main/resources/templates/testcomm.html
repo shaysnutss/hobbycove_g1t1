@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Community Page: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-form">
+        <h1>Add New Community</h1>
+        <form action="#" th:action= "@{/saveCommunity}" th:object = ${community} method="post">
+            <p>Name</p>
+            <input type="text" th:field= "*{name}" name="name" placeholder="Name">
+            <p>Description</p>
+            <input type="text" th:field= "*{description}" name="description" placeholder="Description">
+            <button type="submit"><span></span>ADD</button>
+        </form>
+    </div>
+</body>
+</html>
