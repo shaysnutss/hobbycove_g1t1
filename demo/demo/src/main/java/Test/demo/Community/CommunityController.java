@@ -38,6 +38,11 @@ public class CommunityController {
 
     public static User loggedUser;
 
+    @GetMapping("/community")
+	public String communityPage() {
+		return "allcommunities";
+	}
+
     @GetMapping("/getAllCommunities")
     public String getAllCommunities(Model model) {
         List<Community> communityList = commRepo.findAll();
