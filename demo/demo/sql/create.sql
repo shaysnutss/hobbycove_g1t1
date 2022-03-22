@@ -15,6 +15,9 @@ create table `User`
     `location` varchar(255)
 );
 
+insert into User values(1, "Megan", "m1234@gmail.com", "1234", "apple1234", "teacher", "Jurong");
+insert into User values(2, "Alexis", "a123@gmail.com", "123", "igtest", "teacher", "Pasir Ris");
+
 drop table if exists `Skills`;
 create table `Skills`
 (
@@ -25,6 +28,9 @@ create table `Skills`
     `user_id` int,
     foreign key(`user_id`) references `User`(`user_id`)
 );
+
+insert into Skills values (1, "Embroidery", "2", "5", 1);
+insert into Skills values (2, "Baking", "1", "7", 2);
 
 drop table if exists `Community`;
 create table `Community`

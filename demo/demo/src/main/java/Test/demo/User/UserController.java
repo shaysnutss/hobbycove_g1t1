@@ -43,11 +43,12 @@ public class UserController {
 
     }
 
-    @PostMapping("/login")
+@PostMapping("/login")
     public String loginUser(@ModelAttribute("email") String email, @ModelAttribute("password") String password){
 
         if (userRepo.findByEmail(email) != null) {
             User u = userRepo.findByEmail(email);
+            identity = u;
             String password2 = u.getPassword();
             
             // checks if the password keyed in matches existing password
