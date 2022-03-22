@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/homepage}"><img src="images/HOBBYCOVE.png" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="#">Explore</a></li>
+                <!-- <li><a href="#">Community</a></li> -->
+                <li><a th:href="@{/community}">Community</a></li>
+                <li><a th:href="@{/profile}">Profile</a></li>
+                <li><a th:href="@{/}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="bg">
+        <br>
+        <div class="card" id="bio">
+            <img id="pic" src="images/default-profile.png">
+            <h2>Name</h2>
+            <p>Role</p>
+            <p>Hello this is my bio</p>
+        </div>
+        <div class="card" id="skills">
+            <h1>Skills</h1>
+        </div>
+    </div>
+</body>
+</html>

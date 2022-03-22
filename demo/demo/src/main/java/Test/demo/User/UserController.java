@@ -45,7 +45,6 @@ public class UserController {
 
     @PostMapping("/login")
     public String loginUser(@ModelAttribute("email") String email, @ModelAttribute("password") String password){
-
         if (userRepo.findByEmail(email) != null) {
             User u = userRepo.findByEmail(email);
             identity = u;
@@ -57,15 +56,16 @@ public class UserController {
             }
          }
          return "login";
-        
-
     }
 
     @GetMapping(path = "/homepage")
     public String homePage(Model model) {
-
         model.addAttribute("name", identity.getName());
-
         return "homepage";
     }
+
+    @GetMapping("/profile")
+	public String profilePage() {
+		return "profile";
+	}
 }
