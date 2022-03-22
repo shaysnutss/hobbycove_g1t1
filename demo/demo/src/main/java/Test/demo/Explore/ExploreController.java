@@ -16,11 +16,23 @@ public class ExploreController {
     @Autowired
     private SkillsRepository skillsRepo;
 
+    @GetMapping("/explore")
+	public String explorePage() {
+		return "allposts";
+	}
+
     @GetMapping("/getAllSkills")
-    public StriexploreSkills(Model model) {
+    public String exploreSkills(Model model) {
         List<Skills> skillsList = skillsRepo.findAll();
         model.addAttribute("skillsList", skillsList);
         return "skillslist";
     }
 
+    @GetMapping("/getAllSkills/teacher")
+    public String exploreSkills(Model model) {
+        List<Skills> skillsList = skillsRepo.findAll();
+        for
+        model.addAttribute("skillsList", skillsList);
+        return "skillslist";
+    }
 }
