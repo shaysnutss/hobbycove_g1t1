@@ -51,5 +51,13 @@ create table `Post`
     foreign key(`community_id`) references `Community`(`community_id`)
 );
 
+drop table if exists `Profile`;
+create table `Profile`
+(
+    `profile_id` int auto_increment primary key,
+    `user_id` int,
+    foreign key(`user_id`) references `User`(`user_id`)
+);
+
 
 

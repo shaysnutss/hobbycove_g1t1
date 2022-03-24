@@ -63,9 +63,4 @@ public class UserController {
         model.addAttribute("name", identity.getName());
         return "homepage";
     }
-
-    @GetMapping("/profile")
-	public String profilePage() {
-		return "profile";
-	}
 }
