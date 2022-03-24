@@ -15,6 +15,13 @@
     height: auto;
 }
 
+.icon {
+    display: inline-block;
+    float: right;
+    height: 30px;
+    width: 30px;
+}
+
 div#bio {
     text-align: center;
     width: 50%;

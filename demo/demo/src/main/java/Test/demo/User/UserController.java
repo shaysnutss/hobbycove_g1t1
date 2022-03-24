@@ -60,7 +60,6 @@ public class UserController {
 
     @GetMapping(path = "/homepage")
     public String homePage(Model model) {
-        model.addAttribute("name", identity.getName());
         return "homepage";
     }
 }
