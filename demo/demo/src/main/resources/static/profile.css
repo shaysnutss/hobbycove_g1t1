@@ -22,6 +22,14 @@
     width: 30px;
 }
 
+#edit:hover {
+    content: url("images/edit-after.png");
+}
+
+#done:hover {
+    content: url("images/done-after.png");
+}
+
 div#bio {
     text-align: center;
     width: 50%;
