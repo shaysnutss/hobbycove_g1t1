@@ -13,6 +13,7 @@
     margin: 30px;
     padding: 30px;
     height: auto;
+    text-align: center;
 }
 
 .icon {
@@ -30,8 +31,11 @@
     content: url("images/done-after.png");
 }
 
+#add:hover {
+    content: url("images/add-after.png");
+}
+
 div#bio {
-    text-align: center;
     width: 50%;
     margin-right: 0px;
 }
