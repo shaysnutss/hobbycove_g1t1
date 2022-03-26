@@ -12,13 +12,15 @@ import java.util.List;
 @Transactional
 public class ExploreService {
 
-    @Autowired
+    // find in SkillsService
+    /*@Autowired
     private SkillsRepository skillsRepo;
 
     public List<Skills> getAllSkills(){
+
         return skillsRepo.findAll();
     }
     public void saveUser(Skills skill){
         this.skillsRepo.save(skill); 
-    }
+    }*/
 }

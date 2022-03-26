@@ -23,8 +23,9 @@ public class SkillsController {
     }
 
     @GetMapping("/getAllSkills")
-    public String getAllSkills(Model model) {
-        List<Skills> skillsList = skillsRepo.findAll();
+    public String getAllSkills(Model model, String skill) {
+        //List<Skills> skillsList = skillsRepo.findAll();
+        List<Skills> skillsList = skillsRepo.findBySkill(skill);
         model.addAttribute("skillsList", skillsList);
         return "skillslist";
     }

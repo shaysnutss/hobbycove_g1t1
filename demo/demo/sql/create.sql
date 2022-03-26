@@ -29,8 +29,11 @@ create table `Skills`
     foreign key(`user_id`) references `User`(`user_id`)
 );
 
-insert into Skills values (1, "Embroidery", "2", "5", 1);
-insert into Skills values (2, "Baking", "1", "7", 2);
+insert into Skills values (1, "Embroidery", "Intermediate", "5", 1);
+insert into Skills values (2, "Baking", "Beginner", "7", 2);
+
+Select skills.name, skills.difficulty, skills.price, user.name, user.location as explorePage
+    from Skills join User on Skills.user_id = User.user_id;
 
 drop table if exists `Community`;
 create table `Community`
@@ -56,6 +59,4 @@ create table `Post`
     `community_id` int,
     foreign key(`community_id`) references `Community`(`community_id`)
 );
-
-
 
