@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"></html>
 <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Skills: HobbyCove</title> 
+    <title>Profile Page: HobbyCove</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="profile.css">
 </head>
@@ -21,21 +21,29 @@
 
     <div class="bg">
         <br>
-        <div class="card" id="skills" style="width:100%">
+        <div class="card" id="bio" style="width:30%; margin-right: 0px">
+            <h1 style="display: inline-block; padding-left: 30px">Profile</h1>
+            <a th:href="@{/editProfile}"><img class="icon" id="edit" src="images/edit-before.png"></a>
+            <br><br>
+            <img id="pic" src="images/default-profile.png">
+            <h2><span th:text="${name}"/></h2>
+            <h3><span th:text="${role}"/></h3>
+        </div>
+        <div class="card" id="skills" style="width:30%; margin-right: 0px;">
             <h1 style="display: inline-block; padding-left: 30px">Skills</h1>
-            <a th:href="@{/profile}"><img class="icon" id="done" src="images/done-before.png"></a>
+            <a th:href="@{/editSkill}"><img class="icon" id="edit" src="images/edit-before.png"></a>
             <br><br>
             <table>
                 <tr th:if="${skillsList.isEmpty()}">
                     <td>No skills</td>
                 </tr>
                 <tr th:each="skill:${skillsList}">
-                    <td th:text="${skill.name}">
-                        <img class="icon" id="delete" src="images/delete-before.png">
-                    </td>
+                    <td th:text="${skill.name}"/>
                 </tr>
             </table>
-            <a th:href="@{/addSkill}"><button>Add new skill</button></a>
+        </div>
+        <div class="card" id="roadmap" style="width:30%">
+            <h1>Roadmap</h1>
         </div>
     </div>
 </body>

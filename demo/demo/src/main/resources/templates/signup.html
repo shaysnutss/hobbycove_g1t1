@@ -11,11 +11,11 @@
         <h1>Sign Up Here!</h1>
         <form action="#" th:action= "@{/saveUser}" th:object = ${user} method="post">
             <p>Name</p>
-            <input type="text" th:field= "*{name}" name="name" placeholder="Name">
+            <input type="text" required th:field= "*{name}" name="name" placeholder="Name">
             <p>Email</p>
-            <input type="text" th:field= "*{email}" name="email" placeholder="Email">
+            <input type="email" required th:field= "*{email}" name="email" placeholder="Email">
             <p>Password</p>
-            <input type="password" th:field= "*{password}" name="password" placeholder="Password">
+            <input type="password" required th:field= "*{password}" name="password" placeholder="Password">
             <p>Role</p>
             <select name="role">
                 <option value="student">Student</option>

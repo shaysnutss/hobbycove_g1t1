@@ -21,29 +21,13 @@
 
     <div class="bg">
         <br>
-        <div class="card" id="bio">
-            <h1 style="display: inline-block; padding-left: 30px">Profile</h1>
+        <div class="card" id="bio" style="width: 100%">
+            <h1 style="display: inline-block; padding-left: 30px;">Profile</h1>
             <a th:href="@{/profile}"><img class="icon" id="done" src="images/done-before.png"></a>
             <br><br>
             <img id="pic" src="images/default-profile.png">
             <h2><span th:text="${name}"/></h2>
             <h3><span th:text="${role}"/></h3>
-        </div>
-        <div class="card" id="skills" style="opacity: 0.8">
-            <h1>Skills</h1>
-            <br>
-            <table>
-                <tr th:if="${skillsList.isEmpty()}">
-                    <td>No skills</td>
-                </tr>
-                <tr th:each="skill:${skillsList}">
-                    <td th:text="${skill.name}"/>
-                </tr>
-            </table>
-        </div>
-        <div class="card" id="roadmap" style="opacity: 0.8">
-            <h1>Roadmap</h1>
-        </div>
     </div>
 </body>
 </html>

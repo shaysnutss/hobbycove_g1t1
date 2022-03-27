@@ -11,9 +11,9 @@
         <h1>Login</h1>
         <form action="#" th:action= "@{/login}" th:object = ${user} method="post">
             <p>Email</p>
-            <input type="text" th:field= "*{email}" name="email" placeholder="Email">
+            <input type="text" required th:field= "*{email}" name="email" placeholder="Email">
             <p>Password</p>
-            <input type="password" th:field= "*{password}" name="password" placeholder="Password">
+            <input type="password" required th:field= "*{password}" name="password" placeholder="Password">
             <button type="submit"><span></span>Login</button>
         </form>
     </div>

@@ -67,6 +67,6 @@ public class SkillsController {
         model.addAttribute("skillsList", user.getSkills());
 
         skillsService.addSkills(user, skill);
-         return "redirect:profile";
+         return "redirect:editSkill";
     }
 }

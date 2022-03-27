@@ -28,7 +28,12 @@ public class ProfileController {
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
-		return "profile";
+
+        if (user.getRole().equals("student")) {
+            return "studentprofile";
+        } else {
+            return "teacherprofile";
+        }
 	} 
 
     @GetMapping("/editProfile")

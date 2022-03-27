@@ -21,25 +21,15 @@
 
     <div class="bg">
         <br>
-        <div class="card" id="bio" style="opacity: 0.8">
-            <h1>Profile</h1>
-            <br>
-            <img id="pic" src="images/default-profile.png">
-            <h2><span th:text="${name}"/></h2>
-            <h3><span th:text="${role}"/></h3>
-        </div>
-        <div class="card" id="skills">
+        <div class="card" id="skills" style="width:100%">
             <form action="#" th:action="@{/saveSkill}" th:object="${skill}" method="post">
                 <h1>Skills</h1>
                 <br><br>
                 <label>Name:</label>
-                <input type="text" th:field="*{name}" name="name" placeholder="Name">
+                <input type="text" required th:field="*{name}" name="name" placeholder="Name">
                 <br>
                 <button>Add skill</button>
             </form>
-        </div>
-        <div class="card" id="roadmap" style="opacity: 0.8">
-            <h1>Roadmap</h1>
         </div>
     </div>
 </body>
