@@ -24,9 +24,19 @@
         <div class="card" id="skills" style="width:100%">
             <form action="#" th:action="@{/saveSkill}" th:object="${skill}" method="post">
                 <h1>Skills</h1>
-                <br><br>
+                <br>
                 <label>Name:</label>
-                <input type="text" required th:field="*{name}" name="name" placeholder="Name">
+                <input type="text" required th:field="*{name}" placeholder="Name">
+                <br>
+                <label>Difficulty:</label>
+                <select name="difficulty">
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="expert">Expert</option>
+                </select>
+                <br>
+                <label>Price:</label>
+                <input type="number" required th:field="*{price}" min="0" max="99.99" step="any" placeholder="0.00">
                 <br>
                 <button>Add skill</button>
             </form>

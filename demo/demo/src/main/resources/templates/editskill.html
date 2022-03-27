@@ -29,10 +29,15 @@
                 <tr th:if="${skillsList.isEmpty()}">
                     <td>No skills</td>
                 </tr>
+                <tr th:unless="${skillsList.isEmpty()}">
+                    <th>Skill</th>
+                    <th>Difficulty</th>
+                    <th>Price</th>
+                </tr>
                 <tr th:each="skill:${skillsList}">
-                    <td th:text="${skill.name}">
-                        <img class="icon" id="delete" src="images/delete-before.png">
-                    </td>
+                    <td th:text="${skill.name}"/>
+                    <td th:text="${skill.difficulty}"/>
+                    <td>$<span th:text="${skill.price}"/></td>
                 </tr>
             </table>
             <a th:href="@{/addSkill}"><button>Add new skill</button></a>

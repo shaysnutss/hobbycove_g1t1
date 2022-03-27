@@ -3,8 +3,8 @@
     margin-top: 20px;
     display: flex;
     position: absolute;
-    height: 100%;
     width: 100%;
+    min-height: 85%;
 }
 
 .card {
@@ -44,25 +44,9 @@
     content: url("images/delete-after.png");
 }
 
-/* div#bio {
-    width: 50%;
-    margin-right: 0px;
-}
-
-div#skills {
-    width: 50%;
-    margin-right: 0px;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-div#roadmap {
-    width: 50%;
-} */
-
 h1 {
     text-align: center;
-    color: #266455
+    color: #266455;
 }
 
 h2 {
@@ -73,16 +57,32 @@ h3 {
     color: #98B0A9;
 }
 
-p, table, td, tr {
+p, input {
     color: #364B45;
 }
 
-input {
+table {
+    width: 100%;
+    text-align: center;
+    color: #364B45;
+    overflow: hidden;
+}
+
+td, tr, th {
+    padding: 10px;
+}
+
+th {
+    color: #266455;
+}
+
+input, select {
     border-color: black;
     border-radius: 5px;
     height: 30px;
     width: 200px;
     text-align: center;
+    margin: 10px;
 }
 
 button {
@@ -192,4 +192,5 @@ nav ul li a:hover{
 body {
     width: 100%;
     height: 100%;
+    overflow: scroll;
 }

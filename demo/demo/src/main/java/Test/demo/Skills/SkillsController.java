@@ -27,8 +27,6 @@ public class SkillsController {
     public String addSkill(Model model) {
         user = UserController.identity;
         model.addAttribute("user", user);
-        model.addAttribute("name", user.getName());
-        model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
 
         Skills skill = new Skills();
@@ -40,8 +38,6 @@ public class SkillsController {
     public String editSkill(Model model) {
         user = UserController.identity;
         model.addAttribute("user", user);
-        model.addAttribute("name", user.getName());
-        model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
 
         Skills skill = new Skills();
@@ -53,8 +49,6 @@ public class SkillsController {
     public String deleteSkill(Model model) {
         user = UserController.identity;
         model.addAttribute("user", user);
-        model.addAttribute("name", user.getName());
-        model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
     }
 
