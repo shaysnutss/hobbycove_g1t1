@@ -23,6 +23,11 @@
     width: 30px;
 }
 
+#pic {
+    height: 70px;
+    width: 70px;
+}
+
 #edit:hover {
     content: url("images/edit-after.png");
 }
@@ -33,6 +38,10 @@
 
 #add:hover {
     content: url("images/add-after.png");
+}
+
+#delete:hover {
+    content: url("images/delete-after.png");
 }
 
 div#bio {
@@ -64,8 +73,33 @@ h3 {
     color: #98B0A9;
 }
 
-p {
+p, table, td, tr {
     color: #364B45;
+}
+
+input {
+    border-color: black;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    text-align: center;
+}
+
+button {
+    margin: 20px;
+    width: 200px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid #266455;
+    color: #266455;
+    background-color: white;
+}
+
+button:hover {
+    background-color: #63d471;
 }
 
 *{

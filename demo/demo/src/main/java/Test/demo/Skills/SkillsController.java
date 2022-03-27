@@ -36,6 +36,28 @@ public class SkillsController {
         return "addskill";
     }
 
+    @GetMapping("/editSkill")
+    public String editSkill(Model model) {
+        user = UserController.identity;
+        model.addAttribute("user", user);
+        model.addAttribute("name", user.getName());
+        model.addAttribute("role", user.getRole());
+        model.addAttribute("skillsList", user.getSkills());
+
+        Skills skill = new Skills();
+        model.addAttribute("skill", skill);
+        return "editskill";
+    }
+
+    @GetMapping("/deleteSkill")
+    public String deleteSkill(Model model) {
+        user = UserController.identity;
+        model.addAttribute("user", user);
+        model.addAttribute("name", user.getName());
+        model.addAttribute("role", user.getRole());
+        model.addAttribute("skillsList", user.getSkills());
+    }
+
     @PostMapping("/saveSkill")
     public String saveSkill(Model model, @ModelAttribute("skill") Skills skill) {
         user = UserController.identity;
@@ -43,9 +65,8 @@ public class SkillsController {
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
-        
+
         skillsService.addSkills(user, skill);
          return "redirect:profile";
-
     }
 }
