@@ -21,28 +21,22 @@
 
     <div class="bg">
         <br>
-        <div class="card" id="bio">
-            <h1 style="display: inline-block; padding-left: 30px">Profile</h1>
-            <a th:href="@{/editProfile}"><img class="icon" id="edit" src="images/edit-before.png"></a>
-            <br>
+        <div class="card" id="bio" style="opacity: 0.8">
+            <h1>Profile</h1>
             <img id="pic" src="images/default-female.png">
             <h2><span th:text="${name}"/></h2>
             <h3><span th:text="${role}"/></h3>
         </div>
         <div class="card" id="skills">
-            <h1 style="display: inline-block; padding-left: 30px">Skills</h1>
-            <a th:href="@{/addSkill}"><img class="icon" id="add" src="images/add-before.png"></a>
-            <br>
-            <table>
-                <tr th:if="${skillsList.isEmpty()}">
-                    <td>No skills</td>
-                </tr>
-                <tr th:each="skill:${skillsList}">
-                    <td th:text="${skill.name}"/>
-                </tr>
-            </table>
+            <form action="#" th:action="@{/saveSkill}" th:object="${skill}" method="post">
+                <h1 style="display: inline-block; padding-left: 30px">Skills</h1>
+                <input type="image" class="icon" id="done" src="images/done-before.png">
+                <br><br>
+                <label for="skill">Skill:</label>
+                <input type="text" th:field="*{name}" name="name" placeholder="Name">
+            </form>
         </div>
-        <div class="card" id="roadmap">
+        <div class="card" id="roadmap" style="opacity: 0.8">
             <h1>Roadmap</h1>
         </div>
     </div>

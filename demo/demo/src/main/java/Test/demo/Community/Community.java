@@ -33,7 +33,7 @@ public class Community {
     @ManyToMany(mappedBy = "communities")
     private Set<User> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER)
     private List<Post> posts;
 
 }

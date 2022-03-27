@@ -28,21 +28,20 @@
             <img id="pic" src="images/default-female.png">
             <h2><span th:text="${name}"/></h2>
             <h3><span th:text="${role}"/></h3>
-            <h3>@<span th:text="${instagram}"/></h3>
-            <h3><span th:text="${location}"/></h3>
-            <p>Hello I love hobbies</p>
         </div>
-        <div class="card" id="skills">
+        <div class="card" id="skills" style="opacity: 0.8">
             <h1>Skills</h1>
-            <br>
-            <h2>Baking</h2>
-            <p>I want to learn how to bake cakes</p>
+            <table>
+                <tr th:if="${skillsList.isEmpty()}">
+                    <td>No skills</td>
+                </tr>
+                <tr th:each="skill:${skillsList}">
+                    <td th:text="${skill.name}"/>
+                </tr>
+            </table>
         </div>
-        <div class="card" id="roadmap">
+        <div class="card" id="roadmap" style="opacity: 0.8">
             <h1>Roadmap</h1>
-            <br>
-            <h2>Embroidery</h2>
-            <p>I learnt how to embroider on tote bags</p>
         </div>
     </div>
 </body>

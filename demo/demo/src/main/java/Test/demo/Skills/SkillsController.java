@@ -1,13 +1,15 @@
-package Test.demo.Profile;
+package Test.demo.Skills;
 
+import java.util.*;
 import Test.demo.User.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class ProfileController {
+@ControllerAdvice
+public class SkillsController {
 
     @Autowired
     private UserController userController;
@@ -15,30 +17,35 @@ public class ProfileController {
     private UserRepository userRepo;
 
     @Autowired
-    private ProfileService profileService;
+    private SkillsService skillsService;
     @Autowired
-    private ProfileRepository profileRepo;
+    private SkillsRepository skillsRepo;
 
     public static User user;
 
-    @GetMapping("/profile")
-	public String profilePage(Model model) {
+    @GetMapping("/addSkill")
+    public String addSkill(Model model) {
         user = UserController.identity;
         model.addAttribute("user", user);
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
-		return "profile";
-	} 
 
-    @GetMapping("/editProfile")
-    public String editProfile(Model model) {
+        Skills skill = new Skills();
+        model.addAttribute("skill", skill);
+        return "addskill";
+    }
+
+    @PostMapping("/saveSkill")
+    public String saveSkill(Model model, @ModelAttribute("skill") Skills skill) {
         user = UserController.identity;
         model.addAttribute("user", user);
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
-        return "editprofile";
+        
+        skillsService.addSkills(user, skill);
+         return "redirect:profile";
+
     }
-    
 }

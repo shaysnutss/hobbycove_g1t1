@@ -1,12 +1,12 @@
 package Test.demo.User;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import org.springframework.data.repository.cdi.Eager;
 
 import Test.demo.Community.*;
 import Test.demo.Post.*;
@@ -50,8 +50,8 @@ public class User {
     @JoinTable(name = "User_Communities", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "community_id", referencedColumnName = "community_id"))
     private Set<Community> communities = new HashSet<>();
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Skills> skills;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Skills> skills = new ArrayList<>();
 
 
 }
