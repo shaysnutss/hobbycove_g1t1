@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import Test.demo.User.UserController;
 import Test.demo.User.UserRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
@@ -37,33 +39,36 @@ public class CommunityController {
     private CommunityRepository commRepo;
 
     public static User loggedUser;
-
-    @GetMapping("/community")
-	public String communityPage() {
-		return "allcommunities";
-	}
+    public static Community community;
 
     @GetMapping("/getAllCommunities")
-    public String getAllCommunities(Model model) {
+    public String getAllCommunities(Model model, Model comModel) {
+        Community communityyy = new Community();
+        comModel.addAttribute("communityyy", communityyy);
         List<Community> communityList = commRepo.findAll();
         model.addAttribute("communityList", communityList);
-        return "communitieslist";
+        return "allcommunities";
     }
 
-    @GetMapping("/getMyCommunities")
-    public String getMyCommunities(Model model) {
+    @GetMapping("/getUserCommunities")
+    public String getMyCommunities(Model model, Model comModel) {
+        Community communityyy = new Community();
+        comModel.addAttribute("communityyy", communityyy);
+        
         loggedUser = UserController.identity;
-        List<Long> communityIds = userCommRepo.findCommunityIdByUserId(loggedUser.getId());
-        List<Community> communityList = new ArrayList<>();
-
-        for (int i = 0; i < communityIds.size(); i++){
-            Community community = commRepo.getById(communityIds.get(i));
-            communityList.add(community);
+        List<UserCommunities> userCommunities = userCommRepo.findByUserId(loggedUser.getId());
+        List<Community> communityList= new ArrayList<>();
+        
+        for (int i = 0; i < userCommunities.size(); i++){
+        
+            communityList.add(commRepo.getById(userCommunities.get(i).getCommunity_id()));
         }
 
         model.addAttribute("communityList", communityList);
-        return "mycommunitieslist";
+        
+        return "allmycommunities";
     }
+
 
     @GetMapping("/newCommunityForm")
     public String addNewCommunityForm(Model model) {
@@ -72,36 +77,40 @@ public class CommunityController {
 
         if (userRepo.findByEmail(loggedUser.getEmail()) != null) {
             model.addAttribute("community", community);
-            return "testcomm";
+            return "createcommunity";
+        }
+
+        return "allcommunities";
+
+    }
+
+    @PostMapping("/createCommunity")
+    public String saveCommunity(@ModelAttribute("community") Community community) {
+
+        boolean check = false;
+        loggedUser = UserController.identity;
+        commService.saveCommunity(community);
+        UserCommunities userCommunities = new UserCommunities(loggedUser.getId(), community.getId());
+        userCommRepo.save(userCommunities);
+        check = true;
+
+        if (check) {
+            return "redirect:/getUserCommunities";
         }
 
         return "homepage";
 
     }
 
-    @PostMapping("/saveCommunity")
-    public String saveCommunity(@ModelAttribute("community") Community community) {
+    @PostMapping("/searchCommunities")
+    public String searchCommunities(@ModelAttribute("name") String name, Model model){
+        Community community = commRepo.findByName(name);
+        List<Community> communityList = new ArrayList<>();
+        communityList.add(community);
+        model.addAttribute("communityList", communityList);
+        return "searchcommunities";
 
-        loggedUser = UserController.identity;
-        commService.saveCommunity(community);
-        UserCommunities userCommunities = new UserCommunities(loggedUser.getId(), community.getId());
-        userCommRepo.save(userCommunities);
-
-        return "homepage";
-
-    }
-
-    @PostMapping("/joinCommunity")
-    public String joinCommunity(@ModelAttribute("community") Community community) {
-
-        loggedUser = UserController.identity;
-        commService.saveCommunity(community);
-        UserCommunities userCommunities = new UserCommunities(loggedUser.getId(), community.getId());
-        userCommRepo.save(userCommunities);
-
-        return "homepage";
-
-    }
+    } 
 
     // leave community, only delete from the user_communities table
     // @RequestMapping(path = "/unsubscribe")

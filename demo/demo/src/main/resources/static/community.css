@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    
+    box-sizing: border-box;
 }
 .navbar{
     width: 90%;
@@ -92,23 +92,126 @@ nav ul li a:hover{
 input{
     position: relative;
     display: inline-block;
-    font-size: 30px;
+    font-size: 27px;
     box-sizing: border-box;
 }
 input[type="text"]{
     background: #fff;
     border: 2px solid #266455;
     outline: none;
-    padding: 15px 25px;
+    padding: 5px 15px;
     border-radius: 25px 0 0 25px;
 }
-input[type="submit"]{
+.search_box button{
     position: relative;
-    padding: 15px 25px;
+    padding: 15px 20px;
     border-radius: 0 25px 25px 0;
     border: none;
     outline: none;
     cursor: pointer;
     background: #266455;
     color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.table_comms{
+    max-width: 1500px;
+    border: 1px solid #266455;
+    background-color: #fff;
+    padding: 15px;
+    overflow: auto;
+    margin: auto;
+    border-radius: 4px;
+}
+table{
+    width: 100%;
+    font-size: 20px;
+    color: black;
+    white-space: nowrap;
+}
+table>thead{
+    background-color: #266455;
+    color: #fff;
+}
+
+
+
+
+.uptop{
+    display: grid;
+    /* justify-content: center;
+    margin-top:2%;
+    margin-bottom: 3%;
+    align-items: center;
+    padding-right: 19%; */
+    max-width: 800px;
+    margin-left: 13%;
+    margin-right: 10%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20rem;
+    row-gap: 2rem;
+    margin-bottom: 5%;
+}
+.card {
+    background-color: #fff;
+    display:block;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 3px solid #266455;
+    padding: 10%; 
+    width: 200%;
+    height: 100%;
+}
+.nameofcommunity{
+    position: relative;
+    margin-bottom: 5%;
+    text-align: left;
+}
+.descriptionofcommunity{
+    width:10vw;
+    padding-bottom: 10%;
+    text-align: left;
+    font-size: 15px;
+}
+.viewbutton{
+    width: 100px;
+    padding: 15px 15px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    background: #266455;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-left: 7px;
+    margin-top: 13px;
+    margin-bottom: auto;
+}
+.viewbutton:hover{
+    border: none;
+    color: #fff;
+}
+.joincommunity{
+    align-items: center;
+    justify-content: center;
+    display: center;
+    margin-left: 875px;
+    margin-bottom: 50px;
+}
+.joincommunity button{
+    width: 200px;
+    padding: 15px 15px;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+    background: #266455;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    font-size: 15px;
 }

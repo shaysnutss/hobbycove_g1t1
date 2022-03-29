@@ -9,7 +9,7 @@
 <body>
     <div class="login-form">
         <h1>Add New Community</h1>
-        <form action="#" th:action= "@{/saveCommunity}" th:object = ${community} method="post">
+        <form action="#" th:action= "@{/createCommunity}" th:object = ${community} method="post">
             <p>Name</p>
             <input type="text" th:field= "*{name}" name="name" placeholder="Name">
             <p>Description</p>

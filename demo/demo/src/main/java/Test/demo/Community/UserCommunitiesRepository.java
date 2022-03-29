@@ -8,11 +8,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface UserCommunitiesRepository extends JpaRepository<Community, Long> {
+public interface UserCommunitiesRepository extends JpaRepository<UserCommunities, Long> {
 
-    void save(UserCommunities userCommunities);
+    // void save(UserCommunities userCommunities);
 
-    @Query(value = "select c.* from User_Communities c where c.user_id = :user_id", nativeQuery = true)
-    List<Long> findCommunityIdByUserId(@Param("user_id") Long user_id);
+    // @Query(value = "SELECT * FROM USER_COMMUNITIES u WHERE u.user_id = 1", nativeQuery = true)
+    // List<Long> findCommunityIdByUserId(@Param("user_id") Long user_id);
+
+    List<UserCommunities> findByUserId(Long userId);
     
 }

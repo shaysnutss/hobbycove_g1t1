@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Page: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!-- <link rel="stylesheet" href="homepage.css"> -->
+    <link rel="stylesheet" href="commpage.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="images/HOBBYCOVE.png" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#">Explore</a></li>
+                <li><a th:href="@{/getAllCommunities}">All Communities</a></li>
+                <li><a th:href="@{/getUserCommunities}">My Communities</a></li>
+                <li><a href="#">Profile</a></li>
+                <li><a th:href="@{/}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="feed">
+        <div class="post_box">
+            <form action="#" th:action= "@{/savePost}" th:object = ${posttt} method="post">
+                <div class="post_box_input">
+                    <input type="text" th:field="*{content}" name="content" placeholder="What's happening?">
+                    <button type="submit"><span></span>POST</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="table_comms">
+        <table>
+            <tbody>
+                <tr th:each="postList:${postList}">
+                    <td th:text="${postList.content}">Content</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

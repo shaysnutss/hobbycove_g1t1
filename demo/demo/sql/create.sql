@@ -47,8 +47,7 @@ create table `Post`
 (
     `post_id` int auto_increment primary key,
     `content` varchar(255),
-    `community_id` int,
-    foreign key(`community_id`) references `Community`(`community_id`)
+    `community_id` int
 );
 
 

@@ -21,14 +21,17 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "post_id")
-    private long id;
+    private long postId;
 
-    @ManyToOne
-    @JoinColumn(name = "community_id", referencedColumnName = "community_id", nullable = false)
-    @JsonBackReference
-    Community community;
+    @Column(name = "community_id")
+    private long communityId;
 
     @Column(name = "content")
     private String content;
+
+    public Post(Long community_id, String content) {
+        this.communityId = community_id;
+        this.content = content;
+    }
 
 }
