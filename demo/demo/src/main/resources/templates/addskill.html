@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Skill: HobbyCove</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="navbar">
+        <a th:href="@{/homepage}"><img src="images/HOBBYCOVE.png" class="logo"></a>
+        <nav>
+            <ul>
+                <li><a href="#">Explore</a></li>
+                <li><a th:href="@{/getAllCommunities}">All Communities</a></li>
+                <li><a th:href="@{/getUserCommunities}">My Communities</a></li>
+                <li><a th:href="@{/profile}">Profile</a></li>
+                <li><a th:href="@{/}">Logout</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="bg">
+        <br>
+        <div class="card" id="skills" style="width:100%">
+            <!-- <form action="#" th:action="@{/saveSkill}" th:object="${skill}" method="post">
+                <h1>Skills</h1>
+                <br>
+                <label>Name:</label>
+                <input type="text" required th:field="*{name}" placeholder="Name">
+                <br>
+                <label>Difficulty:</label>
+                <select name="difficulty">
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                </select>
+                <br>
+                <label>Price:</label>
+                <input type="number" required th:field="*{price}" min="0" max="99.99" step="any" placeholder="0.00">
+                <br>
+                <button>Add skill</button>
+            </form> -->
+            <div class="login-form">
+                <h1>ADD NEW SKILL</h1>
+                <form action="#" th:action= "@{/saveSkill}" th:object = "${skill}" method="post">
+                    <p>Name:</p>
+                    <input type="text" required th:field="*{name}" placeholder="Name">
+                    <p>Difficulty:</p>
+                    <select name="difficulty">
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Expert">Expert</option>
+                    </select>
+                    <p>Price:</p>
+                    <input type="number" required th:field="*{price}" min="0" max="99.99" step="any" placeholder="0.00">
+                    <button type="submit"><span></span>ADD</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

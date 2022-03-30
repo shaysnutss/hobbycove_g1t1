@@ -21,7 +21,7 @@ create table `Skills`
     `skill_id` int auto_increment primary key,
     `name` varchar(255),
     `difficulty` varchar(255),
-    `price` decimal(3,2),
+    `price` decimal(4,2),
     `user_id` int,
     foreign key(`user_id`) references `User`(`user_id`)
 );
