@@ -4,14 +4,14 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Community Page: HobbyCove</title> 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="community.css">
+    <link rel="stylesheet" href="explore.css">
 </head>
 <body>
     <div class="navbar">
         <a th:href="@{/homepage}"><img src="images/HOBBYCOVE.png" class="logo"></a>
         <nav>
             <ul>
-                <li><a th:href="@{/explore}">Explore</a></li>
+                <li><a href="#">Explore</a></li>
                 <li><a th:href="@{/getAllCommunities}">All Communities</a></li>
                 <li><a th:href="@{/getUserCommunities}">My Communities</a></li>
                 <li><a th:href="@{/profile}">Profile</a></li>
@@ -27,31 +27,37 @@
     </div>
 
     <div class="search_box">
-        <form action="#" th:action="@{/searchCommunities}" th:object=${communityyy} method="POST">
-            <input type="text" th:field="*{name}" name="name" placeholder="Search...">
+        <form >
+            <input type="text" placeholder="Search...">
             <button type="submit"><span></span>SEARCH</button>
         </form>
     </div>
 
     <div class="uptop">
-        <div class="bg" th:each="community:${communityList}">
+        <div class="bg" th:each="user:${userList}">
             <div class="card" id="bio">
-                <h2 class="nameofcommunity" th:text="${community.name}"></h2>
+                <h2 class="nameofuser" th:text="${user.name}"></h2>
                 <!-- <img id="pic" src="hobbycove_g1t1/demo/demo/src/main/resources/static/images/HOBBYCOVE.png" alt=""> -->
                 <br>
-                <p class="descriptionofcommunity" th:text="${community.description}"></p>
-                <a th:href="@{/getPosts/{id}(id=${community.id})}">
+                <p><strong>Location:</strong></p>
+                <p class="description" th:text="${user.location}"></p>
+                <p><strong>Skill List:</strong></p>
+                <table>
+                    <tr th:if="${user.skills.isEmpty()}">
+                        <td>No Skills</td>
+                    </tr>
+                    <tr th:each="skill:${user.skills}">
+                        <td th:text="${skill.name}">
+                    </tr>
+                </table>
+                <br>
+                <a th:href="@{/goToProfile/{id}(id=${user.id})}">
                     <button class="viewbutton" type="button">
-                        ENTER
+                        VIEW PROFILE
                     </button>
                 </a>
             </div>
         </div>
     </div>
-
-    <div class="joincommunity">
-        <a th:href="@{/newCommunityForm}"><button type="button">CREATE COMMUNITY</button></a>
-    </div>
-
 </body>
 </html>
