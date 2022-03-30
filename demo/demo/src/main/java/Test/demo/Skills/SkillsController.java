@@ -39,28 +39,35 @@ public class SkillsController {
         user = UserController.identity;
         model.addAttribute("user", user);
         model.addAttribute("skillsList", user.getSkills());
-
-        Skills skill = new Skills();
-        model.addAttribute("skill", skill);
         return "editskill";
     }
 
+    // @PostMapping("/deleteSkill/{id}")
+    // public String deleteSkill(Model model, @PathVariable(value="id") Long id) {
+    //     user = UserController.identity;
+    //     model.addAttribute("user", user);
+    //     // skillsService.deleteSkill(user, id);
+    //     // model.addAttribute("skillsList", user.getSkills());
+    //     return "redirect:editSkill";
+    // }
+
     @GetMapping("/deleteSkill")
-    public String deleteSkill(Model model) {
+    public String deleteSkill(Model model, @RequestParam Long skillId) {
         user = UserController.identity;
         model.addAttribute("user", user);
         model.addAttribute("skillsList", user.getSkills());
+        
+        skillsService.deleteSkill(user, skillId);
+        return "redirect:/editSkill";
     }
 
     @PostMapping("/saveSkill")
     public String saveSkill(Model model, @ModelAttribute("skill") Skills skill) {
         user = UserController.identity;
         model.addAttribute("user", user);
-        model.addAttribute("name", user.getName());
-        model.addAttribute("role", user.getRole());
         model.addAttribute("skillsList", user.getSkills());
 
         skillsService.addSkills(user, skill);
-         return "redirect:editSkill";
+         return "redirect:/editSkill";
     }
 }

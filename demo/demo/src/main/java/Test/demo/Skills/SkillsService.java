@@ -27,6 +27,20 @@ public class SkillsService {
         List<Skills> temp = user.getSkills();
         temp.add(skill);
         user.setSkills(temp);
-        this.userRepo.save(user);
+        // this.userRepo.save(user);
+        this.skillsRepo.save(skill);
+    }
+
+    public void deleteSkill(User user, Long id) {
+        if (skillsRepo.getById(id)==null) {
+            return;
+        }
+        Skills skill = skillsRepo.getById(id);
+        List<Skills> temp = user.getSkills();
+        user.deleteSkill(skill);
+        user.setSkills(temp);
+        // this.userRepo.save(user);
+        this.skillsRepo.deleteSkillById(id);
+        
     }
 }

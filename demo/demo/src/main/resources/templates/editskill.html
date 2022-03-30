@@ -38,9 +38,13 @@
                     <td th:text="${skill.name}"/>
                     <td th:text="${skill.difficulty}"/>
                     <td>$<span th:text="${skill.price}"/></td>
+                    <td><a th:href="@{/deleteSkill(skillId=${skill.id})}"><button>Delete<span th:text="${skill.id}"/></button></a></td>
+                    <!-- <form action="#" th:action="@{/deleteSkill}" th:object="${skill}" method="post">
+                        <td><button type="submit">Delete <span th:text="${skill.id}"/></button></a></td>
+                    </form> -->
                 </tr>
             </table>
-            <a th:href="@{/addSkill}"><button>Add new skill</button></a>
+            <a th:href="@{/addSkill}"><button>Add new skill</button>
         </div>
     </div>
 </body>

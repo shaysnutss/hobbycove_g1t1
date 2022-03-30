@@ -30,10 +30,10 @@ public class Community {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany(mappedBy = "communities")
-    private Set<User> users = new HashSet<>();
+    // @ManyToMany(mappedBy = "communities")
+    // private Set<User> users = new HashSet<>();
 
-    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true, fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "community", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts;
 
 }

@@ -46,12 +46,22 @@ public class User {
     @Column(name = "location")
     private String location;
 
-    @ManyToMany
-    @JoinTable(name = "User_Communities", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "community_id", referencedColumnName = "community_id"))
-    private Set<Community> communities = new HashSet<>();
+    // @ManyToMany
+    // @JoinTable(name = "User_Communities", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"), inverseJoinColumns = @JoinColumn(name = "community_id", referencedColumnName = "community_id"))
+    // private Set<Community> communities = new HashSet<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<Skills> skills = new ArrayList<>();
+
+    public boolean deleteSkill(Skills skill) {
+        for (int i=0; i<skills.size(); i++) {
+            if (skills.get(i).getId()==skill.getId()) {
+                skills.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

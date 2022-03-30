@@ -42,6 +42,7 @@ public class ProfileController {
         model.addAttribute("user", user);
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
+        model.addAttribute("skillsList", user.getSkills());
         return "editprofile";
     }
     
