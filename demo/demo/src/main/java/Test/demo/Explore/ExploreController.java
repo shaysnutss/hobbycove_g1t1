@@ -59,4 +59,17 @@ public class ExploreController {
         model.addAttribute("skillsList", user.getSkills());
         return "teacherprofile";
     }
+
+    @PostMapping("/searchUser")
+    public String searchUser(@ModelAttribute("name") String name, Model model){
+        User user = userRepo.findByName(name);
+        if (user == null) {
+            return "redirect:/explore";
+        }
+        List<User> userList = new ArrayList<>();
+        userList.add(user);
+        model.addAttribute("userList", userList);
+        return "searchusers";
+
+    } 
 }

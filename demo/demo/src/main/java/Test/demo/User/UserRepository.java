@@ -19,4 +19,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Query("SELECT a FROM User a WHERE user_id = ?1")
     User findByUserId(Long id);
+
+    @Query("SELECT a FROM User a WHERE name = ?1 OR location = ?1")
+    User findByName(String name);
 }

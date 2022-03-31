@@ -27,6 +27,7 @@ public class ProfileController {
         model.addAttribute("user", user);
         model.addAttribute("name", user.getName());
         model.addAttribute("role", user.getRole());
+        model.addAttribute("email", user.getEmail());
         model.addAttribute("skillsList", user.getSkills());
 
         if (user.getRole().equals("student")) {

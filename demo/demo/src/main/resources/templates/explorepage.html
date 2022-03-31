@@ -27,8 +27,8 @@
     </div>
 
     <div class="search_box">
-        <form >
-            <input type="text" placeholder="Search...">
+        <form action="#" th:action="@{/searchUser}" th:object=${userrr} method="POST">
+            <input type="text" th:field="*{name}" name="name" placeholder="Search...">
             <button type="submit"><span></span>SEARCH</button>
         </form>
     </div>
