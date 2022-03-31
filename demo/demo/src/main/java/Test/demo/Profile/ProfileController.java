@@ -30,7 +30,7 @@ public class ProfileController {
         model.addAttribute("email", user.getEmail());
         model.addAttribute("skillsList", user.getSkills());
 
-        if (user.getRole().equals("student")) {
+        if (user.getRole().equals("Student")) {
             return "studentprofile";
         } else {
             return "teacherprofile";
