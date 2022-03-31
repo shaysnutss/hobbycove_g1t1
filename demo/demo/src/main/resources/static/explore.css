@@ -70,7 +70,8 @@ nav ul li a:hover{
     margin-top: 7%;
 }
 .content .imgBox{
-    width: 600px;
+    width: 890px;
+    height: 600px;
     display: flex;
     /* justify-content: flex-end; */
     /* padding-right: 50px; */
@@ -78,7 +79,7 @@ nav ul li a:hover{
 }
 .content .imgBox img{
     display: flex;
-    margin-left: 73%;
+    margin-left: 63%;
     margin-right: auto;
     width: 175%;
 }
