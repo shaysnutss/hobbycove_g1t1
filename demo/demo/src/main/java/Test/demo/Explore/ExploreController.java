@@ -66,7 +66,7 @@ public class ExploreController {
     public String searchUser(@ModelAttribute("name") String name, Model model){
         User user = userRepo.findByName(name);
         if (user == null) {
-            return "redirect:/explore";
+            return "exploreerror";
         }
         List<User> userList = new ArrayList<>();
         userList.add(user);

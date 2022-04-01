@@ -105,6 +105,9 @@ public class CommunityController {
     @PostMapping("/searchCommunities")
     public String searchCommunities(@ModelAttribute("name") String name, Model model){
         Community community = commRepo.findByName(name);
+        if (community == null) {
+            return "commerror";
+        }
         List<Community> communityList = new ArrayList<>();
         communityList.add(community);
         model.addAttribute("communityList", communityList);
@@ -112,12 +115,4 @@ public class CommunityController {
 
     } 
 
-    // leave community, only delete from the user_communities table
-    // @RequestMapping(path = "/unsubscribe")
-    // public String deleteSubscription(HttpServletRequest request, Model model) {
-    //     Long subId = Long.parseLong(request.getParameter("id"));
-    //     subscriptionService.deleteById(subId);
-
-    //     return "redirect:/subscriptions";
-    // }
 }
