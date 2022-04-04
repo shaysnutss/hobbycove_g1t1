@@ -29,7 +29,7 @@
             <h2><span th:text="${name}"/></h2>
             <h3><span th:text="${role}"/></h3>
         </div>
-        <div class="card" id="skills" style="width:40%; margin-right: 0px;">
+        <div class="card" id="skills" style="width:30%; margin-right: 0px;">
             <h1 style="display: inline-block; padding-left: 30px">Skills</h1>
             <a th:href="@{/editSkill}"><img class="icon" id="edit" src="images/edit-before.png"></a>
             <br><br>
@@ -50,8 +50,39 @@
             </table>
         </div>
         
-        <div class="card" id="roadmap" style="width:30%">
+        <div class="card" id="roadmap" style="width:40%">
             <h1>Roadmap</h1>
+            <div class="timeline">
+
+                <div class="container left">
+                  <div class="rmcontent">
+                    <h2>April 2022</h2>
+                    <p>Learn a new skill to earn X points!</p>
+                  </div>
+                </div>
+            
+                <div class="container right">
+                  <div class="rmcontent">
+                    <h2>May 2022</h2>
+                    <p>Become an expert in something!</p>
+                  </div>
+                </div>
+            
+                <div class="container left">
+                  <div class="rmcontent">
+                    <h2>June 2022</h2>
+                    <p>Finish a certain coruse and earn points!</p>
+                  </div>
+                </div>
+            
+                <div class="container right">
+                  <div class="rmcontent">
+                    <h2>July 2022</h2>
+                    <p>Become an expert in hobby.</p>
+                  </div>
+                </div>
+            
+            </div>
         </div>
     </div>
 </body>
