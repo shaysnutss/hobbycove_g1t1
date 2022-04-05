@@ -56,7 +56,7 @@ public class UserController {
                 return "redirect:/homepage"; //redirect to home or profile later on
             }
          }
-         return "login";
+         return "loginerror";
         
 
     }
