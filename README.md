@@ -1,8 +1,8 @@
 # hobbycove_g1t1
 
-A new Flutter project.
+A prototype of a web application for hobby enthusiasts.
 
 ## Getting Started
 
-This project is a starting point for a web application.
+Please refer to the installation guide prepared.
 
